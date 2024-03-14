@@ -1,0 +1,70 @@
+<?php
+// Start session
+session_start();
+
+// Check if the user is already logged in
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kynlos Login Script</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold text-gray-800">My Web App</a>
+                </div>
+                <div class="flex items-center">
+                    <?php if (!isset($_SESSION['user_id'])) { ?>
+                        <a href="register.php" class="mx-2 text-gray-600 hover:text-gray-800">Register</a>
+                        <a href="login.php" class="mx-2 text-gray-600 hover:text-gray-800">Login</a>
+                    <?php } else { ?>
+                        <a href="dashboard.php" class="mx-2 text-gray-600 hover:text-gray-800">Dashboard</a>
+                        <a href="logout.php" class="mx-2 text-gray-600 hover:text-gray-800">Logout</a>
+                    <?php } ?>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="flex flex-col items-center justify-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Kynlos Login Script</h1>
+            <p class="text-gray-600 mb-8">Explore our features and get started today!</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="dashboard.php" class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">User Dashboard</h2>
+                    <p class="text-gray-600">Access your personalized dashboard</p>
+                </a>
+
+                <a href="profile.php" class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">User Profile</h2>
+                    <p class="text-gray-600">Manage your profile settings</p>
+                </a>
+
+                <a href="admin.php" class="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition duration-300">
+                    <h2 class="text-xl font-bold text-gray-800 mb-2">Admin Panel</h2>
+                    <p class="text-gray-600">Access the admin panel (for admins)</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-6 text-center">
+            &copy; <?php echo date('Y'); ?> Kynlos Login Script. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
