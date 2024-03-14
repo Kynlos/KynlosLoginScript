@@ -67,8 +67,28 @@ $conn = null;
         <h2 class="text-3xl font-bold text-gray-800 mb-4">Welcome, <?php echo $user_name; ?>!</h2>
         <p class="text-gray-600 mb-4">Email: <?php echo $user_email; ?></p>
 
-        <!-- User dashboard content and functionality -->
-        <!-- ... -->
+        <!-- Message submission form -->
+        <form action="submit_message.php" method="post" class="mb-8">
+            <div class="mb-4">
+                <label for="message" class="block text-gray-700 font-bold mb-2">Message:</label>
+                <textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Message</button>
+        </form>
+
+        <?php
+        // Display success message if the message was sent successfully
+        if (isset($_GET['success']) && $_GET['success'] === 'true') {
+            echo '<p class="text-green-500 mb-4">Your message has been sent successfully!</p>';
+        }
+        ?>
+
+        <div class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">My Messages</h3>
+            <a href="user_messages.php" class="text-blue-500 hover:text-blue-700">View and Manage My Messages</a>
+        </div>
+
+        <a href="public.php" class="text-blue-500 hover:text-blue-700">View Public Messages</a>
     </main>
 
     <footer class="bg-gray-800 text-white py-4">
