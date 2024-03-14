@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                    <a href="index.html" class="text-xl font-bold text-gray-800">My Web App</a>
+                    <a href="index.html" class="text-xl font-bold text-gray-800">Kynlos Login Script</a>
                 </div>
                 <div class="flex items-center">
                     <a href="login.php" class="mx-2 text-gray-600 hover:text-gray-800">Login</a>
